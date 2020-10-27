@@ -11,11 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/go-until.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sync/go_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/go_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sync/pool/pool.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sync/pool/pool_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sync/timer/timer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sync/timer/timer_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/go_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/go_test.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +37,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
   <component name="ProjectId" id="1jQ4PmbsMQNCwToAnmUyLjwbzGh" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -49,7 +56,77 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\git-work\go_work\src\go-until\test_x" />
+      <recent name="D:\git-work\go_work\src\go-until" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Test.TestRunPool in go-until/sync/pool">
+    <configuration name="go build go-until" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="go-until" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test1 in go-until" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="go-until" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTest1\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test1 in go-until/test_x" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$/test_x" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="go-until/test_x" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTest1\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestRunPool in go-until/sync/pool" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$/sync/pool" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="go-until/sync/pool" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestRunPool\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test go-until" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="go-until" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestRunPool in go-until/sync/pool" />
+        <item itemvalue="Go Test.Test1 in go-until/test_x" />
+        <item itemvalue="Go Build.go build go-until" />
+        <item itemvalue="Go Test.go test go-until" />
+        <item itemvalue="Go Test.Test1 in go-until" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -65,5 +142,38 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="972" y="362" key="#Go_Modules" timestamp="1603792708415">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="972" y="362" key="#Go_Modules/0.0.1920.1050@0.0.1920.1050" timestamp="1603792708415" />
+    <state x="634" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603792633253">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="634" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792633253" />
+    <state x="1038" y="275" key="EnvironmentVariablesDialog" timestamp="1603792706988">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1038" y="275" key="EnvironmentVariablesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792706988" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1603807671701">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603807671701" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1603807671701">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603807671701" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1603807671701">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603807671701" />
+    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1603807671701">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603807671701" />
   </component>
 </project>

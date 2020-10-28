@@ -10,16 +10,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sync/pool/pool.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sync/pool/pool_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sync/timer/timer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sync/timer/timer_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="pool 待完善">
+      <change afterPath="$PROJECT_DIR$/string/strconv.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sync/go_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/go_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/timer/timer.go" beforeDir="false" afterPath="$PROJECT_DIR$/sync/timer/timer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/timer/timer_test.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,14 +54,17 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\git-work\go_work\src\go-until\sync\timer" />
+      <recent name="D:\git-work\go_work\src\go-until\sync\timer\run" />
       <recent name="D:\git-work\go_work\src\go-until\test_x" />
       <recent name="D:\git-work\go_work\src\go-until" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestRunPool in go-until/sync/pool">
+  <component name="RunManager" selected="Go Build.go build go-until">
     <configuration name="go build go-until" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$" />
@@ -73,17 +72,6 @@
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="go-until" />
       <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Test1 in go-until" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-until" />
-      <working_directory value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="go-until" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTest1\E$" />
       <method v="2" />
     </configuration>
     <configuration name="Test1 in go-until/test_x" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -97,6 +85,17 @@
       <pattern value="^\QTest1\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestMyTimer_AddJob in go-until/sync/timer" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$/sync/timer" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="go-until/sync/timer" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestMyTimer_AddJob\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestRunPool in go-until/sync/pool" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$/sync/pool" />
@@ -108,23 +107,23 @@
       <pattern value="^\QTestRunPool\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go test go-until" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="go test go-until/sync/timer/run" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/sync/timer/run" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="go-until" />
+      <package value="go-until/sync/timer/run" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build go-until" />
+        <item itemvalue="Go Test.go test go-until/sync/timer/run" />
+        <item itemvalue="Go Test.TestMyTimer_AddJob in go-until/sync/timer" />
         <item itemvalue="Go Test.TestRunPool in go-until/sync/pool" />
         <item itemvalue="Go Test.Test1 in go-until/test_x" />
-        <item itemvalue="Go Build.go build go-until" />
-        <item itemvalue="Go Test.go test go-until" />
-        <item itemvalue="Go Test.Test1 in go-until" />
       </list>
     </recent_temporary>
   </component>
@@ -142,6 +141,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="pool 待完善" />
+    <option name="LAST_COMMIT_MESSAGE" value="pool 待完善" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -155,25 +159,65 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="634" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792633253" />
+    <state width="654" height="466" key="DebuggerActiveHint" timestamp="1603892313062">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="654" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1603892313062" />
     <state x="1038" y="275" key="EnvironmentVariablesDialog" timestamp="1603792706988">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1038" y="275" key="EnvironmentVariablesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792706988" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1603807671701">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom" timestamp="1603893408341">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603807671701" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1603807671701">
+    <state width="1877" height="338" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603893408341" />
+    <state width="1877" height="338" key="GridCell.Tab.0.center" timestamp="1603893408340">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603807671701" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1603807671701">
+    <state width="1877" height="338" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603893408340" />
+    <state width="1877" height="338" key="GridCell.Tab.0.left" timestamp="1603893408340">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603807671701" />
-    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1603807671701">
+    <state width="1877" height="338" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603893408340" />
+    <state width="1877" height="338" key="GridCell.Tab.0.right" timestamp="1603893408340">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603807671701" />
+    <state width="1877" height="338" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603893408340" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1603892815216">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1603892815216" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1603892815216">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1603892815216" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1603892815216">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1603892815216" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1603892815216">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603892815216" />
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1603807734771">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1603807734771" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/sync/timer/timer.go</url>
+          <line>136</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/sync/timer/timer.go</url>
+          <line>79</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

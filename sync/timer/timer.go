@@ -6,7 +6,6 @@ import (
 	string2 "go-until/string"
 	"strings"
 	"sync"
-	"time"
 )
 
 /*
@@ -98,7 +97,7 @@ func (t *MyTimer) AddTask(spec string, f ...func()) (err error) {
 
 	return nil
 }
-func (t *MyTimer) AddJob(dr time.Duration, f ...cron.Job) (err error) {
+func (t *MyTimer) AddJob(spec string, f ...cron.Job) (err error) {
 	t.locker.Lock()
 	defer t.locker.Unlock()
 
@@ -106,7 +105,7 @@ func (t *MyTimer) AddJob(dr time.Duration, f ...cron.Job) (err error) {
 
 	if len(f) > 0 {
 		for _, fc := range f {
-			entityID, err := t.context.AddJob("* *", fc)
+			entityID, err := t.context.AddJob(spec, fc)
 			if err != nil {
 				continue
 			}

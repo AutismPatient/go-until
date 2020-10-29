@@ -24,8 +24,6 @@ type Pool struct {
 
 	// 同步操作的锁
 	lock sync.Mutex
-
-	once sync.Once
 }
 
 type Task struct {
@@ -43,7 +41,6 @@ func NewPool(cap int) *Pool {
 		actionJob:    make(chan *Task),
 		transmitChan: make(chan *Task),
 		lock:         sync.Mutex{},
-		once:         sync.Once{},
 	}
 }
 

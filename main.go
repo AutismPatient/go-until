@@ -17,7 +17,7 @@ func main() {
 
 	tr := timer.NewTimer()
 
-	if err := tr.AddTask("@every 1s", func() {
+	if err := tr.AddTask(timer.SetSecond(1), func() {
 		fmt.Println("Hello World !")
 	}); err != nil {
 		fmt.Printf("error to add task:%s", err)

@@ -10,12 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="timer.go">
-      <change afterPath="$PROJECT_DIR$/date/dateHelper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driver/driver.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="xxx" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,7 +142,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="pool 待完善" />
     <MESSAGE value="timer.go" />
-    <option name="LAST_COMMIT_MESSAGE" value="timer.go" />
+    <MESSAGE value="xxx" />
+    <option name="LAST_COMMIT_MESSAGE" value="xxx" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -201,9 +197,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1603963792592" />
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1603964609536">
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1604384476348">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1603964609536" />
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1604384476348" />
   </component>
 </project>

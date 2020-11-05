@@ -8,6 +8,8 @@ import (
 	"github.com/garyburd/redigo/redis"
 	_ "github.com/go-sql-driver/mysql"
 	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/mongo/readpref"
 	"log"
 	"reflect"
 	"strings"
@@ -198,15 +200,52 @@ func (p *RedisStrut) Receive() (reply interface{}, err error) {
 
 type MongoDBStrut struct {
 	*mongo.Client
+	*mongo.Database
+	*mongo.Collection
 }
 type MongoDBOptions struct {
-
+	*options.ClientOptions
 }
 
-func NewMongoDB() (client *MongoDBStrut,err error) {
-	client.Client,err = mongo.Connect(context.TODO())
+/*
+	mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority
+*/
+
+func NewMongoDB(database, url string, opt MongoDBOptions, collection ...string) (client *MongoDBStrut, err error) {
+	var (
+		context = context.TODO()
+	)
+	client.Client, err = mongo.Connect(context,
+		opt.SetRetryReads(*opt.RetryReads),
+		opt.ApplyURI(url),
+		opt.SetAppName(*opt.AppName),
+		opt.SetAuth(*opt.Auth),
+		opt.SetConnectTimeout(*opt.ConnectTimeout),
+		opt.SetSocketTimeout(*opt.SocketTimeout),
+		opt.SetDirect(*opt.Direct),
+		opt.SetDisableOCSPEndpointCheck(*opt.DisableOCSPEndpointCheck),
+		opt.SetCompressors(opt.Compressors),
+		opt.SetHosts(opt.Hosts),
+		opt.SetMaxPoolSize(*opt.MaxPoolSize),
+		opt.SetMaxConnIdleTime(*opt.MaxConnIdleTime),
+		opt.SetReplicaSet(*opt.ReplicaSet),
+		opt.SetRetryWrites(*opt.RetryWrites),
+		opt.SetZlibLevel(*opt.ZlibLevel),
+		opt.SetZstdLevel(*opt.ZstdLevel),
+		opt.SetTLSConfig(opt.TLSConfig),
+		opt.SetWriteConcern(opt.WriteConcern),
+		opt.SetReadConcern(opt.ReadConcern),
+	)
+	if err = client.Client.Ping(context, readpref.Primary()); err != nil {
+		return nil, err
+	}
+	client.Database = client.Client.Database(database)
+	if len(collection) > 0 {
+		client.Collection = client.Database.Collection(collection[0])
+	}
 	return
 }
+
 func NewMSSQL() {
 
 }

@@ -5,12 +5,15 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	_ "github.com/denisenkom/go-mssqldb"
 	"github.com/garyburd/redigo/redis"
 	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/lib/pq"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 	"log"
+	"net/url"
 	"reflect"
 	"strings"
 	"time"
@@ -21,12 +24,14 @@ type BaseConnStrut struct {
 	Pass     string
 	DB       string
 	Addr     string
+	Port     int
+	SSLMode  string
 }
 
-type MysqlStrut struct {
+type RelationSqlStrut struct {
 	*sql.DB
 }
-type MysqlOption struct {
+type RelationSqlOption struct {
 	BaseConnStrut
 	ConnectString string
 	MysqlSetting
@@ -59,7 +64,7 @@ type MysqlSetting struct {
 
 */
 
-func NewMySQL(opt MysqlOption) (itf *MysqlStrut, err error) {
+func NewMySQL(opt RelationSqlOption) (itf *RelationSqlStrut, err error) {
 	var (
 		source = ""
 		conn   *sql.DB
@@ -67,7 +72,7 @@ func NewMySQL(opt MysqlOption) (itf *MysqlStrut, err error) {
 	if opt.ConnectString != "" {
 		source = opt.ConnectString
 	} else {
-		source = fmt.Sprintf("%s:%s@tcp(%s)/%s", opt.UserName, opt.Pass, opt.Addr, opt.DB)
+		source = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s", opt.UserName, opt.Pass, opt.Addr, opt.Port, opt.DB)
 	}
 	conn, err = sql.Open("mysql", source)
 	if err != nil || conn.Ping() != nil {
@@ -84,7 +89,7 @@ func NewMySQL(opt MysqlOption) (itf *MysqlStrut, err error) {
 /*
 	获取单条记录 TODO 2020年11月3日20:52:53
 */
-func (itf *MysqlStrut) GetSingleByID(db string, rely *interface{}, id string) (err error) {
+func (itf *RelationSqlStrut) GetSingleByID(db string, rely *interface{}, id string) (err error) {
 	var (
 		fields string
 	)
@@ -110,7 +115,7 @@ func (itf *MysqlStrut) GetSingleByID(db string, rely *interface{}, id string) (e
 /*
 	MYSQL 运行状态
 */
-func (itf *MysqlStrut) Status() (status sql.DBStats) {
+func (itf *RelationSqlStrut) Status() (status sql.DBStats) {
 	return itf.DB.Stats()
 }
 
@@ -209,6 +214,8 @@ type MongoDBOptions struct {
 
 /*
 	mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority
+
+	详情DOC：https://docs.mongodb.com/drivers/go
 */
 
 func NewMongoDB(database, url string, opt MongoDBOptions, collection ...string) (client *MongoDBStrut, err error) {
@@ -246,11 +253,91 @@ func NewMongoDB(database, url string, opt MongoDBOptions, collection ...string) 
 	return
 }
 
-func NewMSSQL() {
+/*
+	驱动地址： https://github.com/denisenkom/go-mssqldb
+	建议的连接字符串使用 URL 格式：下面列出了其他受支持的格式。sqlserver://username:password@host/instance?param1=value&param2=value
+*/
+func NewMSSQL(opt RelationSqlOption, query url.Values) (rst *RelationSqlStrut, err error) {
+	var (
+		scheme     = "sqlserver"
+		connecting = ""
+	)
+	if opt.ConnectString != "" {
+		scheme = "mssql"
+		connecting = opt.ConnectString
+	} else {
+		connecting = url.URL{
+			Scheme:   scheme,
+			User:     url.UserPassword(opt.UserName, opt.Pass),
+			Host:     fmt.Sprintf("%s:%d", opt.Addr, opt.Port),
+			RawQuery: query.Encode(),
+		}.String()
+	}
 
+	conn, err := sql.Open(scheme, connecting)
+	if err = conn.Ping(); err != nil {
+		log.Fatal(err.Error())
+		return nil, err
+	}
+	conn.SetMaxOpenConns(opt.MaxOpenConn)
+	conn.SetConnMaxLifetime(opt.MaxLifetime)
+	conn.SetMaxIdleConns(opt.MaxIdleConn)
+	rst.DB = conn
+	return
 }
-func NewPostgreSQL() {
 
+/*
+	https://github.com/lib/pq
+	postgres://pqgotest:password@localhost/pqgotest?sslmode=verify-full
+	doc : https://godoc.org/github.com/lib/pq
+
+	相关连接参数：
+
+	* dbname - The name of the database to connect to
+	* user - The user to sign in as
+	* password - The user's password
+	* host - The host to connect to. Values that start with / are for unix
+	  domain sockets. (default is localhost)
+	* port - The port to bind to. (default is 5432)
+	* sslmode - Whether or not to use SSL (default is require, this is not
+	  the default for libpq)
+	* fallback_application_name - An application_name to fall back to if one isn't provided.
+	* connect_timeout - Maximum wait for connection, in seconds. Zero or
+	  not specified means wait indefinitely.
+	* sslcert - Cert file location. The file must contain PEM encoded data.
+	* sslkey - Key file location. The file must contain PEM encoded data.
+	* sslrootcert - The location of the root certificate file. The file
+	  must contain PEM encoded data.
+	Valid values for sslmode are:
+
+	* disable - No SSL
+	* require - Always SSL (skip verification)
+	* verify-ca - Always SSL (verify that the certificate presented by the
+	  server was signed by a trusted CA)
+	* verify-full - Always SSL (verify that the certification presented by
+	  the server was signed by a trusted CA and the server host name
+	  matches the one in the certificate)
+*/
+func NewPostgreSQL(opt RelationSqlOption) (rst *RelationSqlStrut, err error) {
+	var (
+		source = ""
+		conn   *sql.DB
+	)
+	if opt.ConnectString != "" {
+		source = opt.ConnectString
+	} else {
+		source = fmt.Sprintf("postgres://%s:%s@%s:%d/%s?sslmode=%s", opt.UserName, opt.Pass, opt.Addr, opt.Port, opt.DB, opt.SSLMode)
+	}
+	conn, err = sql.Open("postgres", source)
+	if err != nil || conn.Ping() != nil {
+		log.Fatal(err.Error())
+		return nil, err
+	}
+	conn.SetMaxOpenConns(opt.MaxOpenConn)
+	conn.SetConnMaxLifetime(opt.MaxLifetime)
+	conn.SetMaxIdleConns(opt.MaxIdleConn)
+	rst.DB = conn
+	return
 }
 func NewDocker() {
 

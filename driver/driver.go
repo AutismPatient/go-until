@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	_ "github.com/denisenkom/go-mssqldb"
+	"github.com/docker/docker/client"
 	"github.com/garyburd/redigo/redis"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
@@ -13,6 +14,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 	"log"
+	"net/http"
 	"net/url"
 	"reflect"
 	"strings"
@@ -339,6 +341,26 @@ func NewPostgreSQL(opt RelationSqlOption) (rst *RelationSqlStrut, err error) {
 	rst.DB = conn
 	return
 }
-func NewDocker() {
 
+/*
+	DOC ：https://docs.docker.com/engine/api/sdk/examples/
+
+*/
+type DockerOptions struct {
+	Host    string
+	Version string
+	*http.Client
+	HttpHeader map[string]string
+}
+
+func NewDocker(opt DockerOptions) (cli *client.Client, err error) {
+	cli, err = client.NewClient(opt.Host, opt.Version, opt.Client, opt.HttpHeader)
+	if err != nil {
+		return nil, err
+	}
+	if pg, err := cli.Ping(context.Background()); err != nil {
+		log.Fatal(pg)
+		return nil, err
+	}
+	return
 }

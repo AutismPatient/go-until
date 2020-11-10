@@ -14,6 +14,10 @@ import (
 	"unicode"
 )
 
+type IStringHelper interface {
+	Decode([]byte) []byte
+}
+
 // Decode base64 解码
 func Decode(raw []byte) []byte {
 	var buf bytes.Buffer

@@ -268,12 +268,13 @@ func NewMSSQL(opt RelationSqlOption, query url.Values) (rst *RelationSqlStrut, e
 		scheme = "mssql"
 		connecting = opt.ConnectString
 	} else {
-		connecting = url.URL{
+		u := &url.URL{
 			Scheme:   scheme,
 			User:     url.UserPassword(opt.UserName, opt.Pass),
 			Host:     fmt.Sprintf("%s:%d", opt.Addr, opt.Port),
 			RawQuery: query.Encode(),
-		}.String()
+		}
+		connecting = u.String()
 	}
 
 	conn, err := sql.Open(scheme, connecting)
@@ -344,7 +345,7 @@ func NewPostgreSQL(opt RelationSqlOption) (rst *RelationSqlStrut, err error) {
 
 /*
 	DOC ：https://docs.docker.com/engine/api/sdk/examples/
-
+	docker命令详情见官网
 */
 type DockerOptions struct {
 	Host    string
@@ -352,9 +353,12 @@ type DockerOptions struct {
 	*http.Client
 	HttpHeader map[string]string
 }
+type DockerClient struct {
+	*client.Client
+}
 
-func NewDocker(opt DockerOptions) (cli *client.Client, err error) {
-	cli, err = client.NewClient(opt.Host, opt.Version, opt.Client, opt.HttpHeader)
+func NewDocker(opt DockerOptions) (cli *DockerClient, err error) {
+	cli.Client, err = client.NewClient(opt.Host, opt.Version, opt.Client, opt.HttpHeader)
 	if err != nil {
 		return nil, err
 	}

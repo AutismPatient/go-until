@@ -1,1 +1,4 @@
 package os
+
+func init() {
+}

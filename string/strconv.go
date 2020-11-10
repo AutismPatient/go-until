@@ -18,8 +18,11 @@ type IStringHelper interface {
 	Decode([]byte) []byte
 }
 
+type StringHelper struct {
+}
+
 // Decode base64 解码
-func Decode(raw []byte) []byte {
+func (StringHelper) Decode(raw []byte) []byte {
 	var buf bytes.Buffer
 	var decoded = make([]byte, 215)
 	buf.Write(raw)

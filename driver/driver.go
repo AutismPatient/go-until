@@ -67,6 +67,7 @@ type MysqlSetting struct {
 	函数只调用一次。很少有必要这样做
 	关闭一个DB。
 
+	TODO 待实现更方便的命令执行方法
 */
 
 func NewMySQL(opt RelationSqlOption) (itf *RelationSqlStrut, err error) {
@@ -218,6 +219,8 @@ type MongoDBStrut struct {
 	mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority
 
 	详情DOC：https://docs.mongodb.com/drivers/go
+
+	TODO 待实现更方便的命令执行方法
 */
 
 func NewMongoDB(database string, opt *options.ClientOptions, collection string) (client *MongoDBStrut, err error) {
@@ -298,6 +301,7 @@ func NewMSSQL(opt RelationSqlOption, query url.Values) (rst *RelationSqlStrut, e
 	* sslkey - Key file location. The file must contain PEM encoded data.
 	* sslrootcert - The location of the root certificate file. The file
 	  must contain PEM encoded data.
+
 	Valid values for sslmode are:
 
 	* disable - No SSL
@@ -307,20 +311,31 @@ func NewMSSQL(opt RelationSqlOption, query url.Values) (rst *RelationSqlStrut, e
 	* verify-full - Always SSL (verify that the certification presented by
 	  the server was signed by a trusted CA and the server host name
 	  matches the one in the certificate)
+
+	TODO 待实现更方便的命令执行方法
 */
 func NewPostgreSQL(opt RelationSqlOption) (rst *RelationSqlStrut, err error) {
 	var (
 		source = ""
 		conn   *sql.DB
 	)
+	rst = &RelationSqlStrut{}
 	if opt.ConnectString != "" {
 		source = opt.ConnectString
 	} else {
+		if opt.Port == 0 {
+			opt.Port = 5432
+		}
+		if opt.SSLMode == "" {
+			opt.SSLMode = "disable"
+		}
 		source = fmt.Sprintf("postgres://%s:%s@%s:%d/%s?sslmode=%s", opt.UserName, opt.Pass, opt.Addr, opt.Port, opt.DB, opt.SSLMode)
 	}
 	conn, err = sql.Open("postgres", source)
-	if err != nil || conn.Ping() != nil {
-		log.Fatal(err.Error())
+	if err != nil {
+		return nil, err
+	}
+	if err = conn.Ping(); err != nil {
 		return nil, err
 	}
 	conn.SetMaxOpenConns(opt.MaxOpenConn)

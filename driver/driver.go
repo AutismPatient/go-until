@@ -21,6 +21,9 @@ import (
 	"time"
 )
 
+type IDriverHelper interface {
+}
+
 type BaseConnStrut struct {
 	UserName string
 	Pass     string
@@ -220,37 +223,24 @@ type MongoDBOptions struct {
 	详情DOC：https://docs.mongodb.com/drivers/go
 */
 
-func NewMongoDB(database, url string, opt MongoDBOptions, collection ...string) (client *MongoDBStrut, err error) {
+func NewMongoDB(database string, opt *options.ClientOptions, collection string) (client *MongoDBStrut, err error) {
 	var (
-		context = context.TODO()
+		ctx, cancel = context.WithTimeout(context.Background(), 10*time.Second)
 	)
-	client.Client, err = mongo.Connect(context,
-		opt.SetRetryReads(*opt.RetryReads),
-		opt.ApplyURI(url),
-		opt.SetAppName(*opt.AppName),
-		opt.SetAuth(*opt.Auth),
-		opt.SetConnectTimeout(*opt.ConnectTimeout),
-		opt.SetSocketTimeout(*opt.SocketTimeout),
-		opt.SetDirect(*opt.Direct),
-		opt.SetDisableOCSPEndpointCheck(*opt.DisableOCSPEndpointCheck),
-		opt.SetCompressors(opt.Compressors),
-		opt.SetHosts(opt.Hosts),
-		opt.SetMaxPoolSize(*opt.MaxPoolSize),
-		opt.SetMaxConnIdleTime(*opt.MaxConnIdleTime),
-		opt.SetReplicaSet(*opt.ReplicaSet),
-		opt.SetRetryWrites(*opt.RetryWrites),
-		opt.SetZlibLevel(*opt.ZlibLevel),
-		opt.SetZstdLevel(*opt.ZstdLevel),
-		opt.SetTLSConfig(opt.TLSConfig),
-		opt.SetWriteConcern(opt.WriteConcern),
-		opt.SetReadConcern(opt.ReadConcern),
-	)
-	if err = client.Client.Ping(context, readpref.Primary()); err != nil {
+	defer cancel()
+	client = &MongoDBStrut{}
+	client.Client, err = mongo.Connect(ctx, opt)
+	if err != nil {
 		return nil, err
 	}
-	client.Database = client.Client.Database(database)
-	if len(collection) > 0 {
-		client.Collection = client.Database.Collection(collection[0])
+	if err = client.Client.Ping(ctx, readpref.Primary()); err != nil {
+		return nil, err
+	}
+	if database != "" {
+		client.Database = client.Client.Database(database)
+		if collection != "" {
+			client.Collection = client.Database.Collection(collection)
+		}
 	}
 	return
 }

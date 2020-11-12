@@ -140,7 +140,11 @@ func (t *MyTimer) AddTask(spec string, f ...func()) (err error) {
 	t.locker.Lock()
 	defer t.locker.Unlock()
 
-	id := string2.RandToken(6)
+	var (
+		helper string2.IStringHelper
+	)
+	helper = string2.NewStringHelper()
+	id := helper.RandToken(6)
 
 	if len(f) > 0 {
 		for _, fc := range f {
@@ -161,8 +165,11 @@ func (t *MyTimer) AddTask(spec string, f ...func()) (err error) {
 func (t *MyTimer) AddJob(spec string, f ...cron.Job) (err error) {
 	t.locker.Lock()
 	defer t.locker.Unlock()
-
-	id := string2.RandToken(6)
+	var (
+		helper string2.IStringHelper
+	)
+	helper = string2.NewStringHelper()
+	id := helper.RandToken(6)
 
 	if len(f) > 0 {
 		for _, fc := range f {

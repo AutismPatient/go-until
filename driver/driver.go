@@ -213,9 +213,6 @@ type MongoDBStrut struct {
 	*mongo.Database
 	*mongo.Collection
 }
-type MongoDBOptions struct {
-	*options.ClientOptions
-}
 
 /*
 	mongodb+srv://<username>:<password>@<cluster-address>/test?w=majority

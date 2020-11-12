@@ -60,3 +60,6 @@ func TestNewMongoDB(t *testing.T) {
 		cancel()
 	}()
 }
+func TestNewPostgreSQL(t *testing.T) {
+
+}

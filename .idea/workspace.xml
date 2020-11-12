@@ -10,14 +10,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="edit 2020年11月10日22:51:02">
-      <change afterPath="$PROJECT_DIR$/string/stronv_test.go" afterDir="false" />
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="mongo test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/driver.go" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/driver_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/string/strconv.go" beforeDir="false" afterPath="$PROJECT_DIR$/string/strconv.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sync/timer/timer.go" beforeDir="false" afterPath="$PROJECT_DIR$/sync/timer/timer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/os/os.go" beforeDir="false" afterPath="$PROJECT_DIR$/os/os.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/os/os_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/os/os_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +85,7 @@
       <recent name="D:\git-work\go_work\src\go-until" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestNewMongoDB in go-until/driver">
+  <component name="RunManager" selected="Go Test.TestGetStorageInfo in go-until/os">
     <configuration name="go build go-until" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$" />
@@ -95,15 +95,15 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestMyTimer_AddJob in go-until/sync/timer" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestGetStorageInfo in go-until/os" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
-      <working_directory value="$PROJECT_DIR$/sync/timer" />
+      <working_directory value="$PROJECT_DIR$/os" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="go-until/sync/timer" />
+      <package value="go-until/os" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestMyTimer_AddJob\E$" />
+      <pattern value="^\QTestGetStorageInfo\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestNewMongoDB in go-until/driver" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -140,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestGetStorageInfo in go-until/os" />
         <item itemvalue="Go Test.TestNewMongoDB in go-until/driver" />
         <item itemvalue="Go Build.go build go-until" />
         <item itemvalue="Go Test.TestStrConv in go-until/string" />
         <item itemvalue="Go Test.go test go-until/sync/timer/run" />
-        <item itemvalue="Go Test.TestMyTimer_AddJob in go-until/sync/timer" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +195,8 @@
     <MESSAGE value="driver.go" />
     <MESSAGE value="edit" />
     <MESSAGE value="edit 2020年11月10日22:51:02" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit 2020年11月10日22:51:02" />
+    <MESSAGE value="mongo test" />
+    <option name="LAST_COMMIT_MESSAGE" value="mongo test" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -221,22 +222,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1038" y="275" key="EnvironmentVariablesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792706988" />
-    <state width="1877" height="296" key="GridCell.Tab.0.bottom" timestamp="1605170222632">
+    <state width="1877" height="296" key="GridCell.Tab.0.bottom" timestamp="1605174714871">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605170222632" />
-    <state width="1877" height="296" key="GridCell.Tab.0.center" timestamp="1605170222632">
+    <state width="1877" height="296" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605174714871" />
+    <state width="1877" height="296" key="GridCell.Tab.0.center" timestamp="1605174714871">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605170222632" />
-    <state width="1877" height="296" key="GridCell.Tab.0.left" timestamp="1605170222632">
+    <state width="1877" height="296" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605174714871" />
+    <state width="1877" height="296" key="GridCell.Tab.0.left" timestamp="1605174714871">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605170222632" />
-    <state width="1877" height="296" key="GridCell.Tab.0.right" timestamp="1605170222632">
+    <state width="1877" height="296" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605174714871" />
+    <state width="1877" height="296" key="GridCell.Tab.0.right" timestamp="1605174714871">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605170222632" />
+    <state width="1877" height="296" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605174714871" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1605167323296">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -253,9 +254,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605167323296" />
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1605019869386">
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1605171540242">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1605019869386" />
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1605171540242" />
   </component>
 </project>

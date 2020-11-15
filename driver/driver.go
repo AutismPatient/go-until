@@ -94,8 +94,9 @@ func NewMySQL(opt RelationSqlOption) (itf *RelationSqlStrut, err error) {
 
 /*
 	获取单条记录 TODO 2020年11月3日20:52:53
+	指明要返回的字段，在参数rely里填入默认值以明确要返回的列
 */
-func (itf *RelationSqlStrut) GetSingleByID(db string, rely *interface{}, id string) (err error) {
+func (itf *RelationSqlStrut) GetSingle(db string, rely *interface{}, whereSql string) (err error) {
 	var (
 		fields string
 	)
@@ -108,14 +109,84 @@ func (itf *RelationSqlStrut) GetSingleByID(db string, rely *interface{}, id stri
 		)
 		for i := 0; i < tv.NumField(); i++ {
 			field := tv.Field(i).String()
-			lds = append(lds, field)
+			if !tv.IsNil() {
+				lds = append(lds, field)
+			}
 		}
 		fields = strings.Join(lds, ",")
 	default:
 		return errors.New("类型错误，并非 reflect.Struct 类型")
 	}
 
-	return itf.DB.QueryRow("SELECT ? FROM ? WHERE id=?", fields, db, id).Scan()
+	return itf.DB.QueryRow("SELECT ? FROM ? WHERE ?", fields, db, whereSql).Scan(&rely)
+}
+
+/*
+	获取多条记录 TODO 2020年11月15日20:21:13
+	指明要返回的字段，在参数rely里填入默认值以明确要返回的列
+*/
+func (itf *RelationSqlStrut) FindOfCtx(ctx context.Context, query string, rely interface{}, args ...interface{}) (list []map[string]interface{}, err error) {
+	type FieldInfo struct {
+		Name     string
+		TypeInfo interface{}
+	}
+	var (
+		lds []FieldInfo
+		tf  = reflect.TypeOf(rely)
+		tv  = reflect.ValueOf(rely)
+	)
+	rows, err := itf.DB.QueryContext(ctx, query, args)
+	if err != nil {
+		return nil, err
+	}
+	switch tf.Kind() {
+	case reflect.Struct:
+		for i := 0; i < tv.NumField(); i++ {
+			field := tf.Field(i).Name
+			if !tv.Field(i).IsNil() {
+				lds = append(lds, FieldInfo{
+					Name:     field,
+					TypeInfo: tf.Field(i).Type,
+				})
+			}
+		}
+	default:
+		return nil, errors.New("类型错误，并非 reflect.Struct 类型")
+	}
+	var scans, pointer = make([]interface{}, len(lds)), make([]interface{}, len(lds))
+	for i, _ := range pointer {
+		scans[i] = &pointer[i]
+	}
+	for rows.Next() {
+		err = rows.Scan(scans...)
+		if err != nil {
+			log.Fatal(err)
+			continue
+		}
+		l := make(map[string]interface{})
+		for k, v := range pointer {
+			fields := lds[k]
+			switch v.(type) {
+			case int:
+				l[fields.Name] = v.(int)
+			case int64:
+				l[fields.Name] = v.(int64)
+			case string:
+				l[fields.Name] = v.(string)
+			case float64:
+				l[fields.Name] = v.(float64)
+			case float32:
+				l[fields.Name] = v.(float32)
+			case bool:
+				l[fields.Name] = v.(bool)
+			case time.Time:
+				l[fields.Name] = v.(time.Time)
+			}
+		}
+		list = append(list, l)
+	}
+	defer rows.Close()
+	return
 }
 
 /*
@@ -160,10 +231,11 @@ func NewRedis(opt RedisOptions) (pool *RedisStrut, err error) {
 			redis.DialDatabase(opt.DBNum),
 			redis.DialUseTLS(opt.UseTLS), // 指定当连接到的时候是否应该使用TLS
 		)
-		if err != nil || conn.Err() != nil {
+		if err != nil {
 			log.Fatal(err.Error())
 			return nil, err
 		}
+		err = conn.Err()
 		return
 	}
 	pool.Pool = &redis.Pool{

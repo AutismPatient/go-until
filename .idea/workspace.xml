@@ -11,6 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="os getStorageInfo">
+      <change afterPath="$PROJECT_DIR$/reflect/reflect.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/driver.go" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/driver_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver_test.go" afterDir="false" />
@@ -66,6 +67,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
@@ -81,7 +85,7 @@
       <recent name="D:\git-work\go_work\src\go-until" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestNewPostgreSQL in go-until/driver">
+  <component name="RunManager" selected="Go Test.TestNewPostgreSQL in go-until/driver (1)">
     <configuration name="go build go-until" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$" />
@@ -113,6 +117,17 @@
       <pattern value="^\QTestNewMongoDB\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestNewPostgreSQL in go-until/driver (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$/driver" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="go-until/driver" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestNewPostgreSQL\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestNewPostgreSQL in go-until/driver" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$/driver" />
@@ -124,24 +139,13 @@
       <pattern value="^\QTestNewPostgreSQL\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestStrConv in go-until/string" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-until" />
-      <working_directory value="$PROJECT_DIR$/string" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="go-until/string" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestStrConv\E$" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestNewPostgreSQL in go-until/driver (1)" />
         <item itemvalue="Go Test.TestNewPostgreSQL in go-until/driver" />
         <item itemvalue="Go Test.TestGetStorageInfo in go-until/os" />
         <item itemvalue="Go Test.TestNewMongoDB in go-until/driver" />
         <item itemvalue="Go Build.go build go-until" />
-        <item itemvalue="Go Test.TestStrConv in go-until/string" />
       </list>
     </recent_temporary>
   </component>
@@ -200,6 +204,10 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
+    <state x="752" y="183" key="#GOPATH" timestamp="1605421603611">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="752" y="183" key="#GOPATH/0.0.1920.1050@0.0.1920.1050" timestamp="1605421603611" />
     <state x="972" y="362" key="#Go_Modules" timestamp="1603792708415">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -224,22 +232,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1038" y="275" key="EnvironmentVariablesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792706988" />
-    <state width="1877" height="296" key="GridCell.Tab.0.bottom" timestamp="1605193204735">
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom" timestamp="1605427178519">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605193204735" />
-    <state width="1877" height="296" key="GridCell.Tab.0.center" timestamp="1605193204735">
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605427178519" />
+    <state width="1877" height="352" key="GridCell.Tab.0.center" timestamp="1605427178518">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605193204735" />
-    <state width="1877" height="296" key="GridCell.Tab.0.left" timestamp="1605193204735">
+    <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605427178518" />
+    <state width="1877" height="352" key="GridCell.Tab.0.left" timestamp="1605427178518">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605193204735" />
-    <state width="1877" height="296" key="GridCell.Tab.0.right" timestamp="1605193204735">
+    <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605427178518" />
+    <state width="1877" height="352" key="GridCell.Tab.0.right" timestamp="1605427178519">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="296" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605193204735" />
+    <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605427178519" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1605192443954">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

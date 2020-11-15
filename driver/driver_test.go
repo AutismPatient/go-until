@@ -85,7 +85,7 @@ func TestNewPostgreSQL(t *testing.T) {
 	//}
 	//fmt.Println("创建表成功")
 
-	rows, err := client.DB.Exec("INSERT INTO public.test(id,name, age) VALUES (?,?,?);", 11, "猪大肠", 23) // 参数化 待解决
+	rows, err := client.DB.Exec("INSERT INTO test(id,name, age) VALUES (?,?,?);", 11, "猪大肠", 23) // 参数化 待解决
 	if err != nil {
 		t.Error(err) // pq: syntax error at or near ","
 		t.FailNow()

@@ -17,7 +17,6 @@ import (
 	"net/http"
 	"net/url"
 	"reflect"
-	"strings"
 	"time"
 )
 
@@ -92,33 +91,63 @@ func NewMySQL(opt RelationSqlOption) (itf *RelationSqlStrut, err error) {
 	return
 }
 
+type FieldInfo struct {
+	Name     string
+	TypeInfo interface{}
+}
+
 /*
-	获取单条记录 TODO 2020年11月3日20:52:53
+	获取单条记录 TODO 2020年11月3日20:52:53 仅支持常用内置类型
 	指明要返回的字段，在参数rely里填入默认值以明确要返回的列
 */
-func (itf *RelationSqlStrut) GetSingle(db string, rely *interface{}, whereSql string) (err error) {
+func (itf *RelationSqlStrut) GetSingleCtx(ctx context.Context, query string, rely interface{}, args ...interface{}) (single map[string]interface{}, err error) {
 	var (
-		fields string
+		lds []FieldInfo
+		tf  = reflect.TypeOf(rely)
+		tv  = reflect.ValueOf(rely)
 	)
-	tf := reflect.TypeOf(rely)
-	tv := reflect.ValueOf(rely)
 	switch tf.Kind() {
 	case reflect.Struct:
-		var (
-			lds []string
-		)
 		for i := 0; i < tv.NumField(); i++ {
-			field := tv.Field(i).String()
-			if !tv.IsNil() {
-				lds = append(lds, field)
+			field := tf.Field(i).Name
+			if !tv.Field(i).IsNil() {
+				lds = append(lds, FieldInfo{
+					Name:     field,
+					TypeInfo: tf.Field(i).Type,
+				})
 			}
 		}
-		fields = strings.Join(lds, ",")
 	default:
-		return errors.New("类型错误，并非 reflect.Struct 类型")
+		return nil, errors.New("类型错误，并非 reflect.Struct 类型")
 	}
-
-	return itf.DB.QueryRow("SELECT ? FROM ? WHERE ?", fields, db, whereSql).Scan(&rely)
+	var scans, pointer = make([]interface{}, len(lds)), make([]interface{}, len(lds))
+	for i, _ := range pointer {
+		scans[i] = &pointer[i]
+	}
+	err = itf.DB.QueryRowContext(ctx, query, args).Scan(scans...)
+	if err != nil {
+		return nil, err
+	}
+	for k, v := range pointer {
+		fields := lds[k]
+		switch v.(type) {
+		case int:
+			single[fields.Name] = v.(int)
+		case int64:
+			single[fields.Name] = v.(int64)
+		case string:
+			single[fields.Name] = v.(string)
+		case float64:
+			single[fields.Name] = v.(float64)
+		case float32:
+			single[fields.Name] = v.(float32)
+		case bool:
+			single[fields.Name] = v.(bool)
+		case time.Time:
+			single[fields.Name] = v.(time.Time)
+		}
+	}
+	return
 }
 
 /*
@@ -126,10 +155,6 @@ func (itf *RelationSqlStrut) GetSingle(db string, rely *interface{}, whereSql st
 	指明要返回的字段，在参数rely里填入默认值以明确要返回的列
 */
 func (itf *RelationSqlStrut) FindOfCtx(ctx context.Context, query string, rely interface{}, args ...interface{}) (list []map[string]interface{}, err error) {
-	type FieldInfo struct {
-		Name     string
-		TypeInfo interface{}
-	}
 	var (
 		lds []FieldInfo
 		tf  = reflect.TypeOf(rely)
@@ -186,6 +211,32 @@ func (itf *RelationSqlStrut) FindOfCtx(ctx context.Context, query string, rely i
 		list = append(list, l)
 	}
 	defer rows.Close()
+	return
+}
+
+/*
+	执行操作 TODO 2020年11月16日13:47:21
+*/
+type ResultRowInfo struct {
+	RowsAffected int64 // 影响行数
+	LastInsertId int64 // 最高行ID
+}
+
+func (itf *RelationSqlStrut) ExecCtx(ctx context.Context, query string, args ...interface{}) (resultRow ResultRowInfo, err error) {
+	result, err := itf.ExecContext(ctx, query, args)
+	if err != nil {
+		return ResultRowInfo{}, nil
+	}
+	if rowAf, ok := result.LastInsertId(); ok != nil {
+		return ResultRowInfo{}, ok
+	} else {
+		resultRow.RowsAffected = rowAf
+	}
+	if rowLd, ok := result.LastInsertId(); ok != nil {
+		return ResultRowInfo{}, ok
+	} else {
+		resultRow.LastInsertId = rowLd
+	}
 	return
 }
 

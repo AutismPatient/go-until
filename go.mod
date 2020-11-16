@@ -13,6 +13,7 @@ require (
 	github.com/garyburd/redigo v1.6.2
 	github.com/go-ole/go-ole v1.2.4 // indirect
 	github.com/go-sql-driver/mysql v1.5.0
+	github.com/goinggo/mapstructure v0.0.0-20140717182941-194205d9b4a9
 	github.com/lib/pq v1.8.0
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/robfig/cron/v3 v3.0.0

@@ -241,6 +241,32 @@ func (itf *RelationSqlStrut) ExecCtx(ctx context.Context, query string, args ...
 }
 
 /*
+	事务相关 TODO 2020年11月18日20:39:24
+*/
+type ActionEnum int
+
+const (
+	Query ActionEnum = iota
+	QueryRow
+	Exec
+)
+
+func (itf *RelationSqlStrut) Affair(ctx context.Context, opt *sql.TxOptions, qy map[ActionEnum]string) (err error) {
+	tx, err := itf.DB.BeginTx(ctx, opt)
+	func() {
+
+	}()
+
+	err = tx.Commit()
+
+	if err != nil {
+		err = tx.Rollback()
+		return
+	}
+	return
+}
+
+/*
 	MYSQL 运行状态
 */
 func (itf *RelationSqlStrut) Status() (status sql.DBStats) {

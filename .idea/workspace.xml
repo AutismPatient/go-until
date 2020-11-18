@@ -10,14 +10,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="MYSQL driver.go">
-      <change afterPath="$PROJECT_DIR$/convert/convert.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/convert/convert_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reflect/reflect_test.go" afterDir="false" />
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="edit 2020年11月16日15:20:28">
+      <change afterPath="$PROJECT_DIR$/date/dateHelper_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/driver.go" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/os/os.go" beforeDir="false" afterPath="$PROJECT_DIR$/os/os.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,16 +85,16 @@
       <recent name="D:\git-work\go_work\src\go-until" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestStructToMap in go-until/convert">
-    <configuration name="TestGetStorageInfo in go-until/os" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestGetDayTimeSortText in go-until/date">
+    <configuration name="TestGetDayTimeSortText in go-until/date" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
-      <working_directory value="$PROJECT_DIR$/os" />
+      <working_directory value="$PROJECT_DIR$/date" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="go-until/os" />
+      <package value="go-until/date" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestGetStorageInfo\E$" />
+      <pattern value="^\QTestGetDayTimeSortText\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestMapToStruct in go-until/convert" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -146,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestGetDayTimeSortText in go-until/date" />
         <item itemvalue="Go Test.TestStructToMap in go-until/convert" />
         <item itemvalue="Go Test.TestMapToStruct in go-until/convert" />
         <item itemvalue="Go Test.TestNewPostgreSQL in go-until/driver (1)" />
         <item itemvalue="Go Test.TestNewPostgreSQL in go-until/driver" />
-        <item itemvalue="Go Test.TestGetStorageInfo in go-until/os" />
       </list>
     </recent_temporary>
   </component>
@@ -204,7 +201,8 @@
     <MESSAGE value="mongo test" />
     <MESSAGE value="os getStorageInfo" />
     <MESSAGE value="MYSQL driver.go" />
-    <option name="LAST_COMMIT_MESSAGE" value="MYSQL driver.go" />
+    <MESSAGE value="edit 2020年11月16日15:20:28" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit 2020年11月16日15:20:28" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -238,41 +236,45 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1038" y="275" key="EnvironmentVariablesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792706988" />
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1605511209142">
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1605703397323">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605511209142" />
-    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1605511209142">
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1605703397323" />
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom" timestamp="1605511262762">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605511209142" />
-    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1605511209141">
+    <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262762" />
+    <state width="1877" height="352" key="GridCell.Tab.0.center" timestamp="1605511262762">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605511209141" />
-    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1605511209142">
+    <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262762" />
+    <state width="1877" height="352" key="GridCell.Tab.0.left" timestamp="1605511262762">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511209142" />
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1605511116497">
+    <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262762" />
+    <state width="1877" height="352" key="GridCell.Tab.0.right" timestamp="1605511262762">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605511116497" />
-    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1605511116497">
+    <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262762" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1605511262763">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605511116497" />
-    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1605511116497">
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1605511262763">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605511116497" />
-    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1605511116497">
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1605511262763">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511116497" />
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1605448358506">
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1605511262763">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1605448358506" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1605511238279">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1605511238279" />
   </component>
 </project>

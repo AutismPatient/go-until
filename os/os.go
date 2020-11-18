@@ -17,7 +17,7 @@ type storageInfo struct {
 }
 
 /*
-	获取磁盘信息 WIN
+	获取磁盘信息 仅WIN生效
 */
 func GetStorageInfo() []Storage {
 	var (

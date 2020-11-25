@@ -5,6 +5,7 @@ import (
 	"reflect"
 )
 
+// 设置结构体某列字段的值
 func SetValueByTag(result interface{}, tagName string, tagMap map[string]interface{}) error {
 	t := reflect.TypeOf(result)
 	if t.Name() != "" {
@@ -26,4 +27,15 @@ func SetValueByTag(result interface{}, tagName string, tagMap map[string]interfa
 		}
 	}
 	return nil
+}
+
+// 获取结构体
+func GetReflectFields(res interface{}) (fields []string) {
+	var (
+		ref = reflect.TypeOf(res)
+	)
+	for i := 0; i < ref.NumField(); i++ {
+		fields = append(fields, ref.Field(i).Name)
+	}
+	return fields
 }

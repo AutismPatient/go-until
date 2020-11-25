@@ -10,11 +10,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="edit 2020年11月16日15:20:28">
-      <change afterPath="$PROJECT_DIR$/date/dateHelper_test.go" afterDir="false" />
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="edit 2020年11月18日21:54:48">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driver/driver.go" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/os/os.go" beforeDir="false" afterPath="$PROJECT_DIR$/os/os.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/convert/convert.go" beforeDir="false" afterPath="$PROJECT_DIR$/convert/convert.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/date/dateHelper_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/date/dateHelper_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reflect/reflect.go" beforeDir="false" afterPath="$PROJECT_DIR$/reflect/reflect.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,16 @@
       <recent name="D:\git-work\go_work\src\go-until" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestGetDayTimeSortText in go-until/date">
+  <component name="RunManager" selected="Go Build.go build go-until">
+    <configuration name="go build go-until" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="go-until" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestGetDayTimeSortText in go-until/date" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$/date" />
@@ -97,6 +107,17 @@
       <pattern value="^\QTestGetDayTimeSortText\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestGetDayTimeText in go-until/date" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$/date" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="go-until/date" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestGetDayTimeText\E$" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestMapToStruct in go-until/convert" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$/convert" />
@@ -106,28 +127,6 @@
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <pattern value="^\QTestMapToStruct\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestNewPostgreSQL in go-until/driver (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-until" />
-      <working_directory value="$PROJECT_DIR$/driver" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="go-until/driver" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestNewPostgreSQL\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestNewPostgreSQL in go-until/driver" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="go-until" />
-      <working_directory value="$PROJECT_DIR$/driver" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="go-until/driver" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestNewPostgreSQL\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestStructToMap in go-until/convert" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -143,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build go-until" />
+        <item itemvalue="Go Test.TestGetDayTimeText in go-until/date" />
         <item itemvalue="Go Test.TestGetDayTimeSortText in go-until/date" />
         <item itemvalue="Go Test.TestStructToMap in go-until/convert" />
         <item itemvalue="Go Test.TestMapToStruct in go-until/convert" />
-        <item itemvalue="Go Test.TestNewPostgreSQL in go-until/driver (1)" />
-        <item itemvalue="Go Test.TestNewPostgreSQL in go-until/driver" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +201,8 @@
     <MESSAGE value="os getStorageInfo" />
     <MESSAGE value="MYSQL driver.go" />
     <MESSAGE value="edit 2020年11月16日15:20:28" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit 2020年11月16日15:20:28" />
+    <MESSAGE value="edit 2020年11月18日21:54:48" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit 2020年11月18日21:54:48" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -240,22 +240,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1605703397323" />
-    <state width="1877" height="352" key="GridCell.Tab.0.bottom" timestamp="1605511262762">
+    <state width="1877" height="272" key="GridCell.Tab.0.bottom" timestamp="1606316816456">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262762" />
-    <state width="1877" height="352" key="GridCell.Tab.0.center" timestamp="1605511262762">
+    <state width="1877" height="272" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1606316816456" />
+    <state width="1877" height="272" key="GridCell.Tab.0.center" timestamp="1606316816456">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262762" />
-    <state width="1877" height="352" key="GridCell.Tab.0.left" timestamp="1605511262762">
+    <state width="1877" height="272" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1606316816456" />
+    <state width="1877" height="272" key="GridCell.Tab.0.left" timestamp="1606316816456">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262762" />
-    <state width="1877" height="352" key="GridCell.Tab.0.right" timestamp="1605511262762">
+    <state width="1877" height="272" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1606316816456" />
+    <state width="1877" height="272" key="GridCell.Tab.0.right" timestamp="1606316816456">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="352" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262762" />
+    <state width="1877" height="272" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1606316816456" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1605511262763">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -272,9 +272,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1605511238279">
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1605707697299">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1605511238279" />
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1605707697299" />
   </component>
 </project>

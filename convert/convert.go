@@ -1,8 +1,10 @@
 package convert
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/goinggo/mapstructure"
+	"io"
 	"reflect"
 )
 
@@ -27,4 +29,15 @@ func StructToMap(obj interface{}) (data map[string]interface{}) {
 		data[tf.Field(i).Name] = tv.Field(i).Interface()
 	}
 	return data
+}
+func JsonToMap(r io.Reader) (mData map[string]interface{}) {
+	var (
+		decoder = json.NewDecoder(r)
+		jsonVal interface{}
+	)
+	err := decoder.Decode(&jsonVal)
+	if err != nil {
+		panic(err)
+	}
+	return StructToMap(jsonVal)
 }

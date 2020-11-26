@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/goinggo/mapstructure"
 	"io"
+	"log"
 	"reflect"
 )
 
@@ -30,6 +31,10 @@ func StructToMap(obj interface{}) (data map[string]interface{}) {
 	}
 	return data
 }
+
+/*
+	json转map
+*/
 func JsonToMap(r io.Reader) (mData map[string]interface{}) {
 	var (
 		decoder = json.NewDecoder(r)
@@ -40,4 +45,22 @@ func JsonToMap(r io.Reader) (mData map[string]interface{}) {
 		panic(err)
 	}
 	return StructToMap(jsonVal)
+}
+
+/*
+	MAP转Json
+*/
+func MapToJson(m map[string]interface{}) (jVal []byte) {
+	var (
+		structI interface{}
+	)
+	err := MapToStruct(m, structI)
+	if err != nil {
+		panic(err)
+	}
+	jVal, err = json.Marshal(&structI)
+	if err != nil {
+		log.Fatal(err.Error())
+	}
+	return jVal
 }

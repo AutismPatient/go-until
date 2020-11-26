@@ -3,7 +3,14 @@ package reflect
 import (
 	"fmt"
 	"reflect"
+	"strconv"
 )
+
+type Info struct {
+	Fields   map[string]interface{}         `json:"fields"`
+	ElemInfo map[string]reflect.StructField `json:"elem_info"`
+	Size     int64                          `json:"size"`
+}
 
 // 设置结构体某列字段的值
 func SetValueByTag(result interface{}, tagName string, tagMap map[string]interface{}) error {
@@ -29,7 +36,7 @@ func SetValueByTag(result interface{}, tagName string, tagMap map[string]interfa
 	return nil
 }
 
-// 获取结构体
+// 获取结构体列名
 func GetReflectFields(res interface{}) (fields []string) {
 	var (
 		ref = reflect.TypeOf(res)
@@ -38,4 +45,22 @@ func GetReflectFields(res interface{}) (fields []string) {
 		fields = append(fields, ref.Field(i).Name)
 	}
 	return fields
+}
+
+/*
+	获取结构体基本信息
+*/
+func GetReflectInfo(res interface{}) (info Info) {
+	var (
+		ref  = reflect.TypeOf(res)
+		elem = ref.Elem()
+		v    = reflect.ValueOf(elem)
+	)
+	info.Size, _ = strconv.ParseInt(strconv.Itoa(ref.NumField()), 0, 64)
+	for i := 0; i < ref.NumField(); i++ {
+		name := ref.Field(i).Name
+		info.ElemInfo[name] = elem.Field(i)
+		info.Fields[name] = v.Field(i).Interface()
+	}
+	return info
 }

@@ -1,6 +1,8 @@
 package os2
 
-import "github.com/StackExchange/wmi"
+import (
+	"github.com/StackExchange/wmi"
+)
 
 type Storage struct {
 	Name       string
@@ -38,4 +40,15 @@ func GetStorageInfo() []Storage {
 		localStorages = append(localStorages, info)
 	}
 	return localStorages
+}
+
+type SystemInfo struct {
+}
+
+/*
+
+ */
+func GetSystemInfo() (info SystemInfo) {
+	info = SystemInfo{}
+	return info
 }

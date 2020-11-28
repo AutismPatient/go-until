@@ -2,6 +2,7 @@ package os2
 
 import (
 	"fmt"
+	"go-until/convert"
 	"testing"
 )
 
@@ -10,4 +11,7 @@ import (
 */
 func TestGetStorageInfo(t *testing.T) {
 	fmt.Println(GetStorageInfo())
+}
+func TestGetSystemInfo(t *testing.T) {
+	fmt.Println(convert.StructToMap(GetSystemInfo()))
 }

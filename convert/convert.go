@@ -2,7 +2,6 @@ package convert
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/goinggo/mapstructure"
 	"io"
 	"log"
@@ -26,7 +25,6 @@ func StructToMap(obj interface{}) (data map[string]interface{}) {
 	)
 	data = make(map[string]interface{})
 	for i := 0; i < tf.NumField(); i++ {
-		fmt.Println(tf.Field(i))
 		data[tf.Field(i).Name] = tv.Field(i).Interface()
 	}
 	return data

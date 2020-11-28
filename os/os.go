@@ -2,6 +2,9 @@ package os2
 
 import (
 	"github.com/StackExchange/wmi"
+	"net"
+	"os"
+	"runtime"
 )
 
 type Storage struct {
@@ -43,12 +46,40 @@ func GetStorageInfo() []Storage {
 }
 
 type SystemInfo struct {
+	HostName       string          `json:"host_name"`
+	PageSize       int             `json:"page_size"`
+	NumCPU         int             `json:"num_cpu"`
+	NumCgoCall     int64           `json:"num_cgo_call"`
+	Version        string          `json:"version"`
+	OS             string          `json:"os"`
+	GOARCH         string          `json:"goarch"`
+	InterfaceAddrs []net.Addr      `json:"interface_addrs"`
+	Interfaces     []net.Interface `json:"interfaces"`
 }
 
 /*
-
- */
+	返回系统信息
+*/
 func GetSystemInfo() (info SystemInfo) {
-	info = SystemInfo{}
+	var (
+		err error
+	)
+	info.HostName, err = os.Hostname()
+	if err != nil {
+		panic(err)
+	}
+	info.NumCPU = runtime.NumCPU()
+	info.NumCgoCall = runtime.NumCgoCall()
+	info.Version = runtime.Version()
+	info.OS = runtime.GOOS
+	info.GOARCH = runtime.GOARCH
+	info.Interfaces, err = net.Interfaces()
+	if err != nil {
+		panic(err)
+	}
+	info.InterfaceAddrs, err = net.InterfaceAddrs()
+	if err != nil {
+		panic(err)
+	}
 	return info
 }

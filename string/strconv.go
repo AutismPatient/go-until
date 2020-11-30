@@ -29,8 +29,16 @@ type IStringHelper interface {
 type stringHelper struct {
 }
 
+var (
+	Helper *stringHelper
+)
+
 func NewStringHelper() *stringHelper {
 	return &stringHelper{}
+}
+
+func init() {
+	Helper = NewStringHelper()
 }
 
 // Decode base64 解码

@@ -10,10 +10,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="system">
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="systemInfo">
+      <change afterPath="$PROJECT_DIR$/oss/aliyun.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oss/aliyun_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/os/os.go" beforeDir="false" afterPath="$PROJECT_DIR$/os/os.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/os/os_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/os/os_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/string/strconv.go" beforeDir="false" afterPath="$PROJECT_DIR$/string/strconv.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +207,8 @@
     <MESSAGE value="edit 2020年11月25日23:12:12" />
     <MESSAGE value="ref 2020年11月26日22:15:20" />
     <MESSAGE value="system" />
-    <option name="LAST_COMMIT_MESSAGE" value="system" />
+    <MESSAGE value="systemInfo" />
+    <option name="LAST_COMMIT_MESSAGE" value="systemInfo" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -241,22 +246,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1605703397323" />
-    <state width="1877" height="342" key="GridCell.Tab.0.bottom" timestamp="1606556481333">
+    <state width="1877" height="342" key="GridCell.Tab.0.bottom" timestamp="1606701322657">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1606556481333" />
-    <state width="1877" height="342" key="GridCell.Tab.0.center" timestamp="1606556481333">
+    <state width="1877" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1606701322657" />
+    <state width="1877" height="342" key="GridCell.Tab.0.center" timestamp="1606701322657">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1606556481333" />
-    <state width="1877" height="342" key="GridCell.Tab.0.left" timestamp="1606556481332">
+    <state width="1877" height="342" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1606701322657" />
+    <state width="1877" height="342" key="GridCell.Tab.0.left" timestamp="1606701322657">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1606556481332" />
-    <state width="1877" height="342" key="GridCell.Tab.0.right" timestamp="1606556481333">
+    <state width="1877" height="342" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1606701322657" />
+    <state width="1877" height="342" key="GridCell.Tab.0.right" timestamp="1606701322657">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1606556481333" />
+    <state width="1877" height="342" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1606701322657" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1605511262763">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -273,9 +278,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1606492150723">
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1606556565475">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1606492150723" />
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1606556565475" />
   </component>
 </project>

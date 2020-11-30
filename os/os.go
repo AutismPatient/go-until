@@ -1,8 +1,10 @@
 package os2
 
 import (
+	"fmt"
 	"github.com/StackExchange/wmi"
 	"net"
+	"net/http"
 	"os"
 	"runtime"
 )
@@ -46,15 +48,15 @@ func GetStorageInfo() []Storage {
 }
 
 type SystemInfo struct {
-	HostName       string          `json:"host_name"`
-	PageSize       int             `json:"page_size"`
-	NumCPU         int             `json:"num_cpu"`
-	NumCgoCall     int64           `json:"num_cgo_call"`
-	Version        string          `json:"version"`
-	OS             string          `json:"os"`
-	GOARCH         string          `json:"goarch"`
-	InterfaceAddrs []net.Addr      `json:"interface_addrs"`
-	Interfaces     []net.Interface `json:"interfaces"`
+	HostName        string          `json:"host_name"`
+	PageSize        int             `json:"page_size"`
+	NumCPU          int             `json:"num_cpu"`
+	NumCgoCall      int64           `json:"num_cgo_call"`
+	Version         string          `json:"version"`
+	OS              string          `json:"os"`
+	GOARCH          string          `json:"goarch"`
+	InterfaceAdders []net.Addr      `json:"interface_adders"`
+	Interfaces      []net.Interface `json:"interfaces"`
 }
 
 /*
@@ -77,9 +79,17 @@ func GetSystemInfo() (info SystemInfo) {
 	if err != nil {
 		panic(err)
 	}
-	info.InterfaceAddrs, err = net.InterfaceAddrs()
+	info.InterfaceAdders, err = net.InterfaceAddrs()
 	if err != nil {
 		panic(err)
 	}
 	return info
+}
+
+/*
+	上传批量文件（支持断点续传）
+*/
+func UploadFile(req *http.Request) {
+	multipartForm := req.MultipartForm
+	fmt.Println(multipartForm)
 }

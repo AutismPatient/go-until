@@ -10,14 +10,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="systemInfo">
-      <change afterPath="$PROJECT_DIR$/oss/aliyun.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oss/aliyun_test.go" afterDir="false" />
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="oss">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/driver.go" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/os/os.go" beforeDir="false" afterPath="$PROJECT_DIR$/os/os.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/string/strconv.go" beforeDir="false" afterPath="$PROJECT_DIR$/string/strconv.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sync/pool/pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/sync/pool/pool.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +206,8 @@
     <MESSAGE value="ref 2020年11月26日22:15:20" />
     <MESSAGE value="system" />
     <MESSAGE value="systemInfo" />
-    <option name="LAST_COMMIT_MESSAGE" value="systemInfo" />
+    <MESSAGE value="oss" />
+    <option name="LAST_COMMIT_MESSAGE" value="oss" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -278,9 +277,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1606556565475">
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1606744902466">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1606556565475" />
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1606744902466" />
   </component>
 </project>

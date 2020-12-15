@@ -3,6 +3,7 @@ package os2
 import (
 	"fmt"
 	"github.com/StackExchange/wmi"
+	"mime/multipart"
 	"net"
 	"net/http"
 	"os"
@@ -87,9 +88,25 @@ func GetSystemInfo() (info SystemInfo) {
 }
 
 /*
-	上传批量文件（支持断点续传）
+	上传批量文件（支持断点续传） todo 2020年12月15日21:48:39
 */
-func UploadFile(req *http.Request) {
+func UploadFile(req *http.Request, key string) (info map[string]string, err error) {
 	multipartForm := req.MultipartForm
+	files := multipartForm.File[key]
+	for i := 0; i < len(files); i++ {
+		fileName := files[i].Filename
+		file, err := files[i].Open()
+		if err != nil {
+			info[fileName] = "文件打开错误：" + err.Error()
+			continue
+		}
+		err = doUpload(file)
+	}
 	fmt.Println(multipartForm)
+	return info, err
+}
+
+func doUpload(file multipart.File) (err error) {
+	defer file.Close()
+	return err
 }

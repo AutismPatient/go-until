@@ -65,7 +65,6 @@ func (p *Pool) goRoutines(t *Task) {
 }
 
 func (p *Pool) Run() {
-
 	for i := 0; i <= p.capacity; i++ {
 		go p.work()
 	}

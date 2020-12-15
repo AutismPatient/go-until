@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"reflect"
+	"sync"
 	"time"
 )
 
@@ -243,19 +244,26 @@ func (itf *RelationSqlStrut) ExecCtx(ctx context.Context, query string, args ...
 /*
 	事务相关 TODO 2020年11月18日20:39:24
 */
-type ActionEnum int
+type SqlFunc func(tx *sql.Tx, wg sync.WaitGroup)
 
 const (
-	Query ActionEnum = iota
+	Query = iota
 	QueryRow
 	Exec
 )
 
-func (itf *RelationSqlStrut) Affair(ctx context.Context, opt *sql.TxOptions, qy map[ActionEnum]string) (err error) {
+func (itf *RelationSqlStrut) Affair(ctx context.Context, opt *sql.TxOptions, f []SqlFunc) (err error) {
+	var (
+		wg sync.WaitGroup
+	)
 	tx, err := itf.DB.BeginTx(ctx, opt)
-	func() {
 
-	}()
+	for i := 0; i < len(f); i++ {
+		wg.Add(1)
+		go f[i](tx, wg)
+	}
+
+	wg.Wait()
 
 	err = tx.Commit()
 

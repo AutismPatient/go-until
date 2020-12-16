@@ -10,12 +10,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="oss">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="todo 断点续传">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driver/driver.go" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/os/os.go" beforeDir="false" afterPath="$PROJECT_DIR$/os/os.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sync/pool/pool.go" beforeDir="false" afterPath="$PROJECT_DIR$/sync/pool/pool.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +85,7 @@
       <recent name="D:\git-work\go_work\src\go-until" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestGetSystemInfo in go-until/os">
+  <component name="RunManager" selected="Go Build.go build go-until">
     <configuration name="go build go-until" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$" />
@@ -142,8 +141,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestGetSystemInfo in go-until/os" />
         <item itemvalue="Go Build.go build go-until" />
+        <item itemvalue="Go Test.TestGetSystemInfo in go-until/os" />
         <item itemvalue="Go Test.TestGetDayTimeText in go-until/date" />
         <item itemvalue="Go Test.TestGetDayTimeSortText in go-until/date" />
         <item itemvalue="Go Test.TestStructToMap in go-until/convert" />
@@ -207,7 +206,8 @@
     <MESSAGE value="system" />
     <MESSAGE value="systemInfo" />
     <MESSAGE value="oss" />
-    <option name="LAST_COMMIT_MESSAGE" value="oss" />
+    <MESSAGE value="todo 断点续传" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo 断点续传" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -229,6 +229,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="634" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792633253" />
+    <state x="737" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1608120579433">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="737" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1608120579433" />
     <state width="1036" height="466" key="DebuggerActiveHint" timestamp="1605510778325">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -245,22 +249,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1605703397323" />
-    <state width="1877" height="342" key="GridCell.Tab.0.bottom" timestamp="1606701322657">
+    <state width="1340" height="342" key="GridCell.Tab.0.bottom" timestamp="1608125386872">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1606701322657" />
-    <state width="1877" height="342" key="GridCell.Tab.0.center" timestamp="1606701322657">
+    <state width="1340" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1608125386872" />
+    <state width="1340" height="342" key="GridCell.Tab.0.center" timestamp="1608125386872">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1606701322657" />
-    <state width="1877" height="342" key="GridCell.Tab.0.left" timestamp="1606701322657">
+    <state width="1340" height="342" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1608125386872" />
+    <state width="1340" height="342" key="GridCell.Tab.0.left" timestamp="1608125386872">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1606701322657" />
-    <state width="1877" height="342" key="GridCell.Tab.0.right" timestamp="1606701322657">
+    <state width="1340" height="342" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1608125386872" />
+    <state width="1340" height="342" key="GridCell.Tab.0.right" timestamp="1608125386872">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="342" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1606701322657" />
+    <state width="1340" height="342" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1608125386872" />
     <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1605511262763">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -277,9 +281,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1606744902466">
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1608040210063">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1606744902466" />
+    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1608040210063" />
   </component>
 </project>

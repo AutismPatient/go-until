@@ -3,6 +3,8 @@ package os2
 import (
 	"fmt"
 	"github.com/StackExchange/wmi"
+	"go-until/driver"
+	string2 "go-until/string"
 	"mime/multipart"
 	"net"
 	"net/http"
@@ -100,13 +102,29 @@ func UploadFile(req *http.Request, key string) (info map[string]string, err erro
 			info[fileName] = "文件打开错误：" + err.Error()
 			continue
 		}
-		err = doUpload(file)
+		err = doUpload(file, fileName)
 	}
 	fmt.Println(multipartForm)
 	return info, err
 }
 
-func doUpload(file multipart.File) (err error) {
+/*
+	临时文件结构体
+*/
+type TempFileInfo struct {
+	Id       string `json:"id"`
+	Name     string `json:"name"`
+	Position int    `json:"position"` // 上传偏移量
+}
+
+func doUpload(file multipart.File, name string) (err error) {
+	fileInfo := TempFileInfo{
+		Id:       string2.Helper.CreateFileHash(file),
+		Name:     name,
+		Position: 0,
+	}
+	rely, err := driver.RedisClient.Do("get", fileInfo)
+	fmt.Println(rely)
 	defer file.Close()
 	return err
 }

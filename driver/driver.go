@@ -21,7 +21,43 @@ import (
 	"time"
 )
 
+var (
+	RedisClient *RedisStrut
+)
+
 type IDriverHelper interface {
+}
+
+func init() {
+	client, err := NewRedis(RedisOptions{
+		BaseConnStrut: BaseConnStrut{
+			UserName: "",
+			Pass:     "123456",
+			DB:       "",
+			Addr:     "127.0.0.1",
+			Port:     3306,
+			SSLMode:  "",
+		},
+		DialOptions: DialOptions{
+			DBNum:          6,
+			ConnectTimeout: 10,
+			WriteTimeout:   0,
+			ReadTimeout:    0,
+			KeepAlive:      0,
+			UseTLS:         false,
+		},
+		PoolOptions: PoolOptions{
+			MaxIdle:         0,
+			MaxActive:       0,
+			IdleTimeout:     0,
+			Wait:            false,
+			MaxConnLifetime: 0,
+		},
+	})
+	if err != nil {
+		panic(err)
+	}
+	RedisClient = client
 }
 
 type BaseConnStrut struct {

@@ -5,7 +5,7 @@ go 1.14
 require (
 	github.com/Microsoft/go-winio v0.4.15 // indirect
 	github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d
-	github.com/aliyun/aliyun-oss-go-sdk v2.1.5+incompatible // indirect
+	github.com/aliyun/aliyun-oss-go-sdk v2.1.5+incompatible
 	github.com/denisenkom/go-mssqldb v0.9.0
 	github.com/docker/distribution v2.7.1+incompatible // indirect
 	github.com/docker/docker v1.13.1
@@ -20,4 +20,5 @@ require (
 	github.com/robfig/cron/v3 v3.0.0
 	go.mongodb.org/mongo-driver v1.4.2
 	golang.org/x/time v0.0.0-20200630173020-3af7569d3a1e // indirect
+	gopkg.in/yaml.v2 v2.2.8
 )

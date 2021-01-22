@@ -1,0 +1,22 @@
+# redis
+redis:
+  user:
+  db: 0
+  host: 127.0.0.1
+  password: 123456
+  port: 6379
+  max_idle: 1000
+  connect_time_out: 30
+  write_time_out: 8
+  read_time_out: 8
+
+# MYSQL
+mysql:
+  user: root
+  pass: 123456
+  port: 3306
+  dbName: test
+  addr: 127.0.0.1
+
+# 站点
+port: 8080

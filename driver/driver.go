@@ -1,6 +1,7 @@
 package driver
 
 import (
+	_ "../config"
 	"context"
 	"database/sql"
 	"errors"
@@ -10,6 +11,7 @@ import (
 	"github.com/garyburd/redigo/redis"
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
+	"go-until/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
@@ -31,23 +33,23 @@ type IDriverHelper interface {
 func init() {
 	client, err := NewRedis(RedisOptions{
 		BaseConnStrut: BaseConnStrut{
-			UserName: "",
-			Pass:     "123456",
+			UserName: config.Config.Redis.User,
+			Pass:     config.Config.Redis.Password,
 			DB:       "",
-			Addr:     "127.0.0.1",
-			Port:     3306,
+			Addr:     config.Config.Redis.Host,
+			Port:     config.Config.Redis.Port,
 			SSLMode:  "",
 		},
 		DialOptions: DialOptions{
-			DBNum:          6,
-			ConnectTimeout: 10,
-			WriteTimeout:   0,
-			ReadTimeout:    0,
+			DBNum:          config.Config.Redis.Db,
+			ConnectTimeout: config.Config.Redis.ConnectTimeOut,
+			WriteTimeout:   config.Config.Redis.WriteTimeOut,
+			ReadTimeout:    config.Config.Redis.ReadTimeOut,
 			KeepAlive:      0,
 			UseTLS:         false,
 		},
 		PoolOptions: PoolOptions{
-			MaxIdle:         0,
+			MaxIdle:         config.Config.Redis.MaxIdle,
 			MaxActive:       0,
 			IdleTimeout:     0,
 			Wait:            false,
@@ -65,7 +67,7 @@ type BaseConnStrut struct {
 	Pass     string
 	DB       string
 	Addr     string
-	Port     int
+	Port     string
 	SSLMode  string
 }
 
@@ -516,8 +518,8 @@ func NewPostgreSQL(opt RelationSqlOption) (rst *RelationSqlStrut, err error) {
 	if opt.ConnectString != "" {
 		source = opt.ConnectString
 	} else {
-		if opt.Port == 0 {
-			opt.Port = 5432
+		if opt.Port == "" {
+			opt.Port = "5432"
 		}
 		if opt.SSLMode == "" {
 			opt.SSLMode = "disable"

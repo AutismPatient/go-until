@@ -18,6 +18,7 @@ require (
 	github.com/lib/pq v1.8.0
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/robfig/cron/v3 v3.0.0
+	github.com/sirupsen/logrus v1.7.0
 	go.mongodb.org/mongo-driver v1.4.2
 	golang.org/x/time v0.0.0-20200630173020-3af7569d3a1e // indirect
 	gopkg.in/yaml.v2 v2.2.8

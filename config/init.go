@@ -19,6 +19,14 @@ type Struck struct {
 		WriteTimeOut   time.Duration `yaml:"write_time_out"`
 		ReadTimeOut    time.Duration `yaml:"read_time_out"`
 	} `yaml:"redis"`
+	Logger struct {
+		Prefix      string                 `yaml:"prefix"`
+		WithFields  map[string]interface{} `yaml:"withFields"`
+		InFile      bool                   `yaml:"inFile"`
+		IsHook      bool                   `yaml:"isHook"`
+		DateFormat  string                 `yaml:"dateFormat"`
+		Environment string                 `yaml:"environment"`
+	} `yaml:"logger"`
 }
 
 var (
@@ -39,4 +47,5 @@ func readYaml() {
 	if err != nil {
 		log.Fatal(err.Error())
 	}
+	println("YAML file read successfully")
 }

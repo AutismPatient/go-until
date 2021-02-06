@@ -1,10 +1,12 @@
 package logger
 
 import (
-	"encoding/json"
+	"bytes"
 	"fmt"
 	"github.com/sirupsen/logrus"
 	"io"
+	"os"
+	"time"
 )
 
 var (
@@ -12,34 +14,54 @@ var (
 )
 
 func init() {
+	DefaultLogouts = NewLog(Parameter{
+		Level:        5,
+		ReportCaller: true,
+		Fields:       nil,
+		Hook:         nil,
+		IO:           os.Stdout,
+		RegisterExitHandler: func() {
 
+		},
+		DeferExitHandler: func() {
+
+		},
+	})
 }
 
 /**
 参数
 */
 type Parameter struct {
-	Formatter           LogoutsFormatter // 自定义格式化
-	Level               logrus.Level     // 级别
-	ReportCaller        bool             // 如果您希望将调用方法添加为字段
-	Fields              logrus.Fields    // 自定义字段map
-	Hook                logrus.Hook      // 您可以添加用于日志记录级别的挂钩。例如，将错误发送到上的异常跟踪服务Error，Fatal并将Panic信息发送到StatsD或同时记录到多个位置，例如syslog。
-	IO                  io.Writer        // io
-	RegisterExitHandler func()           // 程序异常后即将退出事件
-	DeferExitHandler    func()           //
+	Level               logrus.Level  // 级别
+	ReportCaller        bool          // 如果您希望将调用方法添加为字段
+	Fields              logrus.Fields // 自定义字段map
+	Hook                logrus.Hook   // 您可以添加用于日志记录级别的挂钩。例如，将错误发送到上的异常跟踪服务Error，Fatal并将Panic信息发送到StatsD或同时记录到多个位置，例如syslog。
+	IO                  io.Writer     // io
+	RegisterExitHandler func()        // 程序异常后即将退出事件
+	DeferExitHandler    func()        //
 }
 
 /**
 返回 logrus 实例
 */
-func newLog(parameter Parameter) *logrus.Logger {
+func NewLog(parameter Parameter) *logrus.Logger {
 	DefaultLogouts = logrus.New()
-	DefaultLogouts.SetFormatter(&parameter.Formatter)
+
+	if parameter.Level == 0 {
+		parameter.Level = 5
+	}
+
 	DefaultLogouts.SetLevel(parameter.Level)
+
 	DefaultLogouts.SetReportCaller(parameter.ReportCaller)
 	DefaultLogouts.WithFields(parameter.Fields)
-	DefaultLogouts.AddHook(parameter.Hook)
-	DefaultLogouts.SetOutput(parameter.IO)
+	if parameter.Hook != nil {
+		DefaultLogouts.AddHook(parameter.Hook)
+	}
+	if parameter.IO != nil {
+		DefaultLogouts.SetOutput(parameter.IO)
+	}
 
 	logrus.RegisterExitHandler(parameter.RegisterExitHandler)
 	logrus.DeferExitHandler(parameter.DeferExitHandler)
@@ -48,17 +70,20 @@ func newLog(parameter Parameter) *logrus.Logger {
 }
 
 /**
-格式化输出
+默认格式化输出 todo 2021年2月6日22:42:06
 */
 type LogoutsFormatter struct {
 }
 
 func (receiver *LogoutsFormatter) Format(entry *logrus.Entry) ([]byte, error) {
-	serialized, err := json.Marshal(entry.Data)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal fields to JSON, %w", err)
+	var b *bytes.Buffer
+	if entry.Buffer != nil {
+		b = entry.Buffer
+	} else {
+		b = &bytes.Buffer{}
 	}
-	return append(serialized, '\n'), nil
+	b.WriteString(fmt.Sprintf("%s %s", time.Now().Format("2006-01-02 15:04:05"), entry.Message))
+	return b.Bytes(), nil
 }
 
 /**

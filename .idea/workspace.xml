@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -10,11 +13,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="yaml">
-      <change afterPath="$PROJECT_DIR$/logger/log.go" afterDir="false" />
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="todo 断点续传">
+      <change beforePath="$PROJECT_DIR$/.idea/go-until.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/go-until.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_1_22_21_33__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021_1_22_21_33__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver/driver.go" beforeDir="false" afterPath="$PROJECT_DIR$/driver/driver.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
@@ -30,7 +33,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Go" />
+  <component name="GOROOT" url="file://C:/Program Files/Go" />
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
@@ -61,7 +64,9 @@
     <property name="configurable.Global.GOPATH.is.expanded" value="true" />
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
@@ -81,52 +86,52 @@
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/main.go" />
       <package value="go-until" />
       <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="TestGetDayTimeSortText in go-until/date" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$/date" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="go-until/date" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTestGetDayTimeSortText\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestGetDayTimeText in go-until/date" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$/date" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="go-until/date" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTestGetDayTimeText\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestGetSystemInfo in go-until/os" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$/os" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="go-until/os" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTestGetSystemInfo\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestStructToMap in go-until/convert" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$/convert" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="go-until/convert" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTestStructToMap\E$" />
       <method v="2" />
     </configuration>
@@ -203,79 +208,5 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="752" y="183" key="#GOPATH" timestamp="1605421603611">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="752" y="183" key="#GOPATH/0.0.1920.1050@0.0.1920.1050" timestamp="1605421603611" />
-    <state x="972" y="362" key="#Go_Modules" timestamp="1603792708415">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="972" y="362" key="#Go_Modules/0.0.1920.1050@0.0.1920.1050" timestamp="1603792708415" />
-    <state x="586" y="203" key="#Inspections" timestamp="1605188588492">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="586" y="203" key="#Inspections/0.0.1920.1050@0.0.1920.1050" timestamp="1605188588492" />
-    <state x="634" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603792633253">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="634" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792633253" />
-    <state x="737" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1608120579433">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="737" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1608120579433" />
-    <state width="1036" height="466" key="DebuggerActiveHint" timestamp="1605510778325">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1036" height="466" key="DebuggerActiveHint/0.0.1920.1050@0.0.1920.1050" timestamp="1605510778325" />
-    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog" timestamp="1605164333332">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="92" y="92" width="1736" height="866" key="DiffContextDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1605164333332" />
-    <state x="1038" y="275" key="EnvironmentVariablesDialog" timestamp="1603792706988">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="1038" y="275" key="EnvironmentVariablesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1603792706988" />
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1605703397323">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1605703397323" />
-    <state width="1340" height="342" key="GridCell.Tab.0.bottom" timestamp="1608125386872">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1340" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1608125386872" />
-    <state width="1340" height="342" key="GridCell.Tab.0.center" timestamp="1608125386872">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1340" height="342" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1608125386872" />
-    <state width="1340" height="342" key="GridCell.Tab.0.left" timestamp="1608125386872">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1340" height="342" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1608125386872" />
-    <state width="1340" height="342" key="GridCell.Tab.0.right" timestamp="1608125386872">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1340" height="342" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1608125386872" />
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1605511262763">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
-    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1605511262763">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
-    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1605511262763">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
-    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1605511262763">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1605511262763" />
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2" timestamp="1611329986785">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="552" y="244" key="Vcs.Push.Dialog.v2/0.0.1920.1050@0.0.1920.1050" timestamp="1611329986785" />
   </component>
 </project>

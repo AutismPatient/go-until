@@ -12,7 +12,7 @@ type Info struct {
 	Size     int64                          `json:"size"`
 }
 
-// 设置结构体某列字段的值
+// SetValueByTag 设置结构体某列字段的值
 func SetValueByTag(result interface{}, tagName string, tagMap map[string]interface{}) error {
 	t := reflect.TypeOf(result)
 	if t.Name() != "" {
@@ -36,7 +36,7 @@ func SetValueByTag(result interface{}, tagName string, tagMap map[string]interfa
 	return nil
 }
 
-// 获取结构体列名
+// GetReflectFields 获取结构体列名
 func GetReflectFields(res interface{}) (fields []string) {
 	var (
 		ref = reflect.TypeOf(res)
@@ -47,9 +47,6 @@ func GetReflectFields(res interface{}) (fields []string) {
 	return fields
 }
 
-/*
-	获取结构体基本信息
-*/
 func GetReflectInfo(res interface{}) (info Info) {
 	var (
 		ref  = reflect.TypeOf(res)

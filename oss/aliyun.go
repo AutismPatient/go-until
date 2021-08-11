@@ -59,7 +59,7 @@ func (client *ClientStruct) getBucket(name string) *oss.Bucket {
 	return bucket
 }
 
-// 创建空间，根据版本
+// CreateBucketOfVersion 创建空间，根据版本
 func (client *ClientStruct) CreateBucketOfVersion(name string, isVersion bool) bool {
 	err := client.CreateBucket(name)
 	if err != nil {
@@ -76,7 +76,7 @@ func (client *ClientStruct) CreateBucketOfVersion(name string, isVersion bool) b
 	return true
 }
 
-// 获取空间版本状态信息
+// GetBucketInfo 获取空间版本状态信息
 func (client *ClientStruct) GetBucketInfo(name string) oss.GetBucketVersioningResult {
 	versionInfo, err := client.GetBucketVersioning(name)
 	if err != nil {
@@ -85,7 +85,7 @@ func (client *ClientStruct) GetBucketInfo(name string) oss.GetBucketVersioningRe
 	return versionInfo
 }
 
-// 上传
+// Upload 上传
 func (client *ClientStruct) Upload(uploadType int, suffix string, data multipart.File) (bool, string) {
 	switch uploadType {
 	case 0:
@@ -123,7 +123,7 @@ func (client *ClientStruct) uploadSimple(suffix string, file multipart.File) (bo
 	return true, key
 }
 
-// 获取Object资源
+// GetObjectSoftLink 获取Object资源
 func (client *ClientStruct) GetObjectSoftLink(key string) (data []byte) {
 	bucket := client.getBucket(ConfigValue["Bucket"])
 	if client.IsExist(key) {
@@ -140,7 +140,7 @@ func (client *ClientStruct) GetObjectSoftLink(key string) (data []byte) {
 	return
 }
 
-// 删除资源
+// DeleteObject 删除资源
 func (client *ClientStruct) DeleteObject(key string) error {
 	bucket := client.getBucket(ConfigValue["Bucket"])
 	return bucket.DeleteObject(key)

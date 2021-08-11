@@ -1,7 +1,6 @@
 package driver
 
 import (
-	_ "../config"
 	"context"
 	"database/sql"
 	"errors"
@@ -12,6 +11,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
 	"go-until/config"
+	_ "go-until/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"

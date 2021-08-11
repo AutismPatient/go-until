@@ -35,4 +35,20 @@ func main() {
 	//
 	//fmt.Println(str)
 
+	// 测试 logrus
+
+	//log := logger.NewLog(logger.Parameter{
+	//	Level:               4,
+	//	ReportCaller:        true,
+	//	Fields:              nil,
+	//	Hook:                nil,
+	//	IO:                  os.Stdout,
+	//	RegisterExitHandler: nil,
+	//	DeferExitHandler:    nil,
+	//})
+	//
+	//log.SetFormatter(&logger.LogoutsFormatter{})
+	//
+	//log.Infoln("这是一条来自logger日志的输出信息！")
+
 }

@@ -1,7 +1,6 @@
 package pool
 
 import (
-	"runtime"
 	"sync"
 )
 
@@ -12,7 +11,7 @@ import (
 
 */
 
-// 池接受来自客户端的任务，它限制总数
+// Pool 池接受来自客户端的任务，它限制总数
 // 通过回收goroutines到一个给定的数字的goroutines。
 type Pool struct {
 	// 容量
@@ -31,11 +30,6 @@ type Task struct {
 }
 
 func NewPool(cap int) *Pool {
-	if cap >= runtime.NumCPU() {
-		cap = runtime.NumCPU()
-	} else if cap <= 0 {
-		cap = 1
-	}
 	return &Pool{
 		capacity:     cap,
 		actionJob:    make(chan *Task),

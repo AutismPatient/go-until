@@ -76,7 +76,7 @@ func (stringHelper) ToIntArray(s []string) []int64 {
 	return []int64{}
 }
 
-// 随机TOKEN
+// RandToken 随机TOKEN
 func (stringHelper) RandToken(offset int64) string {
 	var unix = time.Now().Unix()
 	if offset != 0 {
@@ -87,13 +87,13 @@ func (stringHelper) RandToken(offset int64) string {
 	return fmt.Sprintf("%X", newToken)
 }
 
-// md5 sum
+// MD5Sum md5 sum
 func (stringHelper) MD5Sum(str string) string {
 	sumStr := md5.Sum([]byte(str))
 	return fmt.Sprintf("%X", sumStr)
 }
 
-// 判断字符串是否含有中文字符
+// EqChineseChar 判断字符串是否含有中文字符
 func (stringHelper) EqChineseChar(str string) (eq bool) {
 	for _, r := range str {
 		if unicode.Is(unicode.Scripts["Han"], r) {
@@ -103,7 +103,7 @@ func (stringHelper) EqChineseChar(str string) (eq bool) {
 	return false
 }
 
-// 判断非空
+// EqEmpty 判断非空
 func (stringHelper) EqEmpty(filter ...string) bool {
 	for _, v := range filter {
 		if v == "" {
@@ -113,19 +113,19 @@ func (stringHelper) EqEmpty(filter ...string) bool {
 	return true
 }
 
-// 随机生成指定位数的大写字母和数字的组合
+// GetRandomString 随机生成指定位数的大写字母和数字的组合
 func (stringHelper) GetRandomString(l int) string {
 	str := "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+^%$#!"
-	bytes := []byte(str)
+	b := []byte(str)
 	var result []byte
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	for i := 0; i < l; i++ {
-		result = append(result, bytes[r.Intn(len(bytes))])
+		result = append(result, b[r.Intn(len(b))])
 	}
 	return string(result)
 }
 
-// 生成文件hash
+// CreateFileHash 生成文件hash
 func (stringHelper) CreateFileHash(reader io.Reader) (str string) {
 	newHash := sha256.New()
 	_, err := io.Copy(newHash, reader)

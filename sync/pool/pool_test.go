@@ -12,7 +12,7 @@ import (
 
 func TestRunPool(t *testing.T) {
 
-	p := NewPool(2)
+	p := NewPool(10)
 
 	f := func() error {
 		for i := 1; i <= 100; i++ {

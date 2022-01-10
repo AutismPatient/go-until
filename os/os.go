@@ -2,9 +2,9 @@ package os2
 
 import (
 	"fmt"
+	"github.com/AutismPatient/go-until/driver"
+	string2 "github.com/AutismPatient/go-until/string"
 	"github.com/StackExchange/wmi"
-	"go-until/driver"
-	string2 "go-until/string"
 	"mime/multipart"
 	"net"
 	"net/http"

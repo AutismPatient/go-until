@@ -2,8 +2,8 @@ package timer
 
 import (
 	"fmt"
+	string2 "github.com/AutismPatient/go-until/string"
 	"github.com/robfig/cron/v3"
-	string2 "go-until/string"
 	"strings"
 	"sync"
 )

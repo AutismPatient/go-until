@@ -62,9 +62,6 @@ type SystemInfo struct {
 	Interfaces      []net.Interface `json:"interfaces"`
 }
 
-/*
-	返回系统信息
-*/
 func GetSystemInfo() (info SystemInfo) {
 	var (
 		err error
@@ -108,9 +105,6 @@ func UploadFile(req *http.Request, key string) (info map[string]string, err erro
 	return info, err
 }
 
-/*
-	临时文件结构体
-*/
 type TempFileInfo struct {
 	Id       string `json:"id"`
 	Name     string `json:"name"`

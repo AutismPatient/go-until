@@ -8,16 +8,10 @@ import (
 	"reflect"
 )
 
-/*
-	Map转结构体
-*/
 func MapToStruct(mapInstance map[string]interface{}, structI interface{}) (err error) {
 	return mapstructure.Decode(mapInstance, structI)
 }
 
-/*
-	结构体转MAP
-*/
 func StructToMap(obj interface{}) (data map[string]interface{}) {
 	var (
 		tf = reflect.TypeOf(obj)
@@ -30,9 +24,6 @@ func StructToMap(obj interface{}) (data map[string]interface{}) {
 	return data
 }
 
-/*
-	json转map
-*/
 func JsonToMap(r io.Reader) (mData map[string]interface{}) {
 	var (
 		decoder = json.NewDecoder(r)
@@ -45,9 +36,6 @@ func JsonToMap(r io.Reader) (mData map[string]interface{}) {
 	return StructToMap(jsonVal)
 }
 
-/*
-	MAP转Json
-*/
 func MapToJson(m map[string]interface{}) (jVal []byte) {
 	var (
 		structI interface{}

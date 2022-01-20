@@ -146,7 +146,7 @@ func (client *ClientStruct) DeleteObject(key string) error {
 	return bucket.DeleteObject(key)
 }
 
-// 判断文件是否存在
+// IsExist 判断文件是否存在
 func (client *ClientStruct) IsExist(key string) bool {
 	bucket := client.getBucket(ConfigValue["Bucket"])
 	isExist, err := bucket.IsObjectExist(key)
@@ -156,12 +156,12 @@ func (client *ClientStruct) IsExist(key string) bool {
 	return isExist
 }
 
-// 定义进度条监听器。
-type OssProgressListener struct {
+// ProgressListener 定义进度条监听器。
+type ProgressListener struct {
 }
 
-// 定义进度变更事件处理函数。
-func (listener *OssProgressListener) ProgressChanged(event *oss.ProgressEvent) {
+// ProgressChanged 定义进度变更事件处理函数。
+func (listener *ProgressListener) ProgressChanged(event *oss.ProgressEvent) {
 	switch event.EventType {
 	case oss.TransferStartedEvent:
 		fmt.Printf("Transfer Started, ConsumedBytes: %d, TotalBytes %d.\n",

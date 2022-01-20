@@ -207,13 +207,13 @@ func SetSecond(second int) (spec string) {
 	return spec
 }
 
-// 设置某个时刻下执行
+// SetTimeOfDay 设置某个时刻下执行
 func SetTimeOfDay(minute, hour int) (spec string) {
 	spec = fmt.Sprintf("0 %d %d * * ?", minute, hour)
 	return spec
 }
 
-// 在某个时间阶段性按间隔执行 参数限制格式如：3-6am,19-23pm
+// SetSomeTimeOfGet 在某个时间阶段性按间隔执行 参数限制格式如：3-6am,19-23pm
 func SetSomeTimeOfGet(offset int, ams ...string) (spec string) {
 	if len(ams) > 0 {
 		spec = fmt.Sprintf("0 %d %s * * ?", offset, strings.Join(ams, ","))

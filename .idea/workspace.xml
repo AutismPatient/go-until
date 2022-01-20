@@ -13,12 +13,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="xxxx">
+    <list default="true" id="e6053210-db88-4778-bec0-589d13453f7f" name="Default Changelist" comment="清除无用注释">
+      <change afterPath="$PROJECT_DIR$/excel/excelize_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/excel/excelize_util.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/convert/convert.go" beforeDir="false" afterPath="$PROJECT_DIR$/convert/convert.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/os/os.go" beforeDir="false" afterPath="$PROJECT_DIR$/os/os.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oss/aliyun.go" beforeDir="false" afterPath="$PROJECT_DIR$/oss/aliyun.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sync/timer/timer.go" beforeDir="false" afterPath="$PROJECT_DIR$/sync/timer/timer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +28,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Go Application" />
         <option value="Go File" />
       </list>
     </option>
@@ -92,16 +93,7 @@
       <recent name="D:\git-work\go_work\src\go-until" />
     </key>
   </component>
-  <component name="RunManager" selected="Go 构建.go build go-until">
-    <configuration name="go build go-until" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="go-until" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="go-until" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/main.go" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Go 测试.github.com/AutismPatient/go-until/excel 中的 TestNewExcelByStruct">
     <configuration name="TestGetDayTimeText in go-until/date" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="go-until" />
       <working_directory value="$PROJECT_DIR$/date" />
@@ -148,6 +140,23 @@
       <pattern value="^\QTestRunPool\E$" />
       <method v="2" />
     </configuration>
+    <configuration name="github.com/AutismPatient/go-until/excel 中的 TestNewExcelByStruct" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="go-until" />
+      <working_directory value="$PROJECT_DIR$/excel" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="github.com/AutismPatient/go-until/excel" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestNewExcelByStruct\E$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go 测试.github.com/AutismPatient/go-until/excel 中的 TestNewExcelByStruct" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,9 +220,21 @@
     <MESSAGE value="README.md" />
     <MESSAGE value="mod" />
     <MESSAGE value="xxxx" />
-    <option name="LAST_COMMIT_MESSAGE" value="xxxx" />
+    <MESSAGE value="清除无用注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="清除无用注释" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/excel/excelize_util.go</url>
+          <line>27</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
